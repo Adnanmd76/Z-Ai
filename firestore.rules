@@ -1,28 +1,40 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Users can only read/write their own data
+    // Users (user may read/write only their doc)
     match /users/{userId} {
       allow read, write: if request.auth != null && request.auth.uid == userId;
     }
-    
-    // Settings specific to the user
-    match /launcherSettings/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
+
+    // Virtual Screens (user-owned)
+    match /virtualScreens/{screenId} {
+      allow read: if request.auth != null && request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.userId;
+      allow update, delete: if request.auth != null && request.auth.uid == resource.data.userId;
     }
 
-    // Tasks and Notes
-    match /tasks/{taskId} {
-      allow read, write: if request.auth != null && request.auth.uid == resource.data.userId;
-    }
-    match /notes/{noteId} {
-      allow read, write: if request.auth != null && request.auth.uid == resource.data.userId;
+    // AI projects: user can create their own project; others cannot read.
+    match /ai_projects/{projId} {
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.user_id;
+      allow read, update, delete: if request.auth != null && request.auth.uid == resource.data.user_id;
     }
 
-    // Public price data (Read-only for authenticated users)
-    match /livePrices/{coinId} {
-      allow read: if request.auth != null;
-      allow write: if false; // Only server admin can write
+    // Vault files: metadata only; storage rules below.
+    match /vault_files/{fileId} {
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.user_id;
+      allow read, update, delete: if request.auth != null && request.auth.uid == resource.data.user_id;
+    }
+
+    // Public app catalog
+    match /apps/{appId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // Credits ledger is readable by owner, write by server (functions) or owner
+    match /credits_transactions/{txId} {
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.user_id;
+      allow read: if request.auth != null && request.auth.uid == resource.data.user_id;
     }
   }
 }

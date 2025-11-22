@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="win_background_dark">#121212</color>
+    <color name="win_surface_dark">#1E1E1E</color>
+    <color name="win_blue_primary">#007AFF</color>
+    <color name="win_gold_primary">#FFD700</color>
+    <color name="win_text_on_primary">#FFFFFF</color>
+    <color name="win_text_secondary">#B0B0B0</color>
+    <color name="crypto_green">#2E8B57</color>
+    <color name="crypto_red">#DC143C</color>
+    <color name="overlay_dark">#404040</color>
+</resources>
