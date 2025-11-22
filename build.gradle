@@ -59,6 +59,7 @@ plugins {
     id 'com.android.application' version '8.1.4' apply false
     id 'com.android.library' version '8.1.4' apply false
     id 'org.jetbrains.kotlin.android' version '1.9.20' apply false
+    id 'com.google.gms.google-services' version '4.4.1' apply false
 }
 
 allprojects {
@@ -191,7 +192,7 @@ subprojects {
 // Task to generate project report
 task projectReport {
     doLast {
-        println """
+        println '''
         ╔══════════════════════════════════════════════════════════════╗
         ║                    Z-AI Choice Screen                        ║
         ║                  Project Build Report                        ║
@@ -208,6 +209,6 @@ task projectReport {
         ║ • Kotlin: ${kotlin_version}                                      ║
         ║ • AGP: ${agp_version}                                          ║
         ╚══════════════════════════════════════════════════════════════╝
-        """.stripIndent()
+        '''.stripIndent()
     }
 }

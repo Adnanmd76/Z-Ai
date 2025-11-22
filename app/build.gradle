@@ -1,13 +1,14 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.gms.google-services'
 }
 
 android {
-    namespace 'com.zai.choicescreen'
+    namespace 'com.zai.mobiverse'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.zai.choicescreen"
+        applicationId "com.zai.mobiverse"
         minSdk 21
         targetSdk 34
         versionCode 1
@@ -18,6 +19,12 @@ android {
         // Vector drawable support for older versions
         vectorDrawables {
             useSupportLibrary true
+        }
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java']
         }
     }
 
@@ -135,7 +142,7 @@ dependencies {
     
     // UI Testing
     androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.5.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.5.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:35.1'
     
     // For testing Room database
     testImplementation 'androidx.room:room-testing:2.6.1'

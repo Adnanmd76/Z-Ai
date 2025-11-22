@@ -1,8 +1,8 @@
-# Z-AiChoiceScreen Complete Supabase Setup Guide
+# MobiVerse Complete Supabase Setup Guide
 ## Mobile Home Intelligence Platform
 
 ### Project Overview
-Z-AiChoiceScreen is a comprehensive Mobile Home Intelligence platform built entirely within the Supabase ecosystem. This guide provides step-by-step instructions for setting up all components.
+MobiVerse is a comprehensive Mobile Home Intelligence platform built entirely within the Supabase ecosystem. This guide provides step-by-step instructions for setting up all components.
 
 ---
 
@@ -11,7 +11,7 @@ Z-AiChoiceScreen is a comprehensive Mobile Home Intelligence platform built enti
 ### Steps:
 1. Navigate to https://supabase.com
 2. Create a new project with the following details:
-   - **Project Name:** Z-AiChoiceScreen-MHI
+   - **Project Name:** MobiVerse-MHI
    - **Region:** Select closest region for optimal performance
    - **Database Password:** Store securely
 3. Note down the following credentials:
@@ -466,7 +466,7 @@ REACT_APP_API_URL=https://[project-id].supabase.co/rest/v1
 
 - **Supabase Documentation:** https://supabase.com/docs
 - **Supabase Community:** https://discord.supabase.io
-- **GitHub Repository:** https://github.com/Adnanmd76/Z-AiChoiceScreen
+- **GitHub Repository:** https://github.com/Adnanmd76/MobiVerse
 - **Project Email:** adnanmd76@gmail.com
 
 ---
